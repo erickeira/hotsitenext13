@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function Teste1({list}){
+export default function Teste2({list}){
     return (
         <>
-            <Link href={"teste1"}>Ir para pagina 1</Link>
+            <Link href={"/"}>Ir para home</Link>
             <div>{JSON.stringify(list)}</div>
         </>
     )

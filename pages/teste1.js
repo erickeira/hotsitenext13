@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Teste1({list}){
     return (
         <>
-            <Link href={"teste1"}>Ir para pagina 1</Link>
+            <Link href={"teste2"}>Ir para pagina 2</Link>
             <div>{JSON.stringify(list)}</div>
         </>
     )
