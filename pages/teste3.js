@@ -17,6 +17,7 @@ export default function Teste2({list}){
         >
           Ir para pagina home
         </Link>
+        <div style={{marginTop: 30}}>POKEMON API</div>
         <div style={{marginTop: 30}}>{JSON.stringify(list)}</div>
     </div>
     )
