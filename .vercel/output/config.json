@@ -59,25 +59,24 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/",
+      "src": "^             c",
       "dest": "/"
     },
     {
-      "src": "^/teste1",
+      "src": "^/_next/data/IMVgo89p8UEgpFxRd1X\\-2/teste1.json$",
       "dest": "/teste1"
     },
     {
-      "src": "^/teste2",
+      "src": "^/_next/data/IMVgo89p8UEgpFxRd1X\\-2/teste2.json$",
       "dest": "/teste2"
     },
     {
-      "src": "^/teste3",
+      "src": "^/_next/data/IMVgo89p8UEgpFxRd1X\\-2/teste3.json$",
       "dest": "/teste3"
     },
     {
       "src": "/_next/data/(.*)",
-      "dest": "/404",
-      "status": 404
+      "dest": "/teste1"
     },
     {
       "handle": "hit"
