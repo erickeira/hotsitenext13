@@ -59,30 +59,31 @@
       "handle": "rewrite"
     },
     {
-      "src": "^             c",
+      "src": "^/_next/data/(.*)/index.json$",
       "dest": "/"
     },
     {
-      "src": "^/_next/data/IMVgo89p8UEgpFxRd1X\\-2/teste1.json$",
+      "src": "^/_next/data/(.*)/teste1.json$",
       "dest": "/teste1"
     },
     {
-      "src": "^/_next/data/IMVgo89p8UEgpFxRd1X\\-2/teste2.json$",
+      "src": "^/_next/data/(.*)/teste2.json$",
       "dest": "/teste2"
     },
     {
-      "src": "^/_next/data/IMVgo89p8UEgpFxRd1X\\-2/teste3.json$",
+      "src": "^/_next/data/(.*)/teste3.json$",
       "dest": "/teste3"
     },
     {
       "src": "/_next/data/(.*)",
-      "dest": "/teste1"
+      "dest": "/404",
+      "status": 404
     },
     {
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|IMVgo89p8UEgpFxRd1X\\-2)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|dflBuhgDMIJ76KtXOi3QA)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },
