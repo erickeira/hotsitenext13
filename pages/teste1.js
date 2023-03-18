@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-export default function Teste1({list}){
+// export default function Teste1({list}){
+export default function Teste1(){
     return (
         <div style={{paddingTop: 30}}>
             <Link href={"teste2"}
@@ -18,14 +19,14 @@ export default function Teste1({list}){
               Ir para pagina 2
             </Link>
             <div style={{marginTop: 30}}>POKEMON API</div>
-            <div style={{marginTop: 30}}>{JSON.stringify(list)}</div>
+            {/* <div style={{marginTop: 30}}>{JSON.stringify(list)}</div> */}
         </div>
     )
 }
 
-export async function getServerSideProps() {
-  const response =  await fetch( "https://pokeapi.co/api/v2/pokemon/ditto");
-  const list = await response.json()
+// export async function getServerSideProps() {
+//   const response =  await fetch( "https://pokeapi.co/api/v2/pokemon/ditto");
+//   const list = await response.json()
 
-  return { props: { list } }
-}
+//   return { props: { list } }
+// }

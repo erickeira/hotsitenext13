@@ -59,19 +59,15 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/EPPO4rkLDL0qlVGHRDcUD/index.json$",
+      "src": "^/_next/data/MQKBbkKD\\-d2rD4ZE84O3T/index.json$",
       "dest": "/"
     },
     {
-      "src": "^/_next/data/EPPO4rkLDL0qlVGHRDcUD/teste1.json$",
-      "dest": "/teste1"
-    },
-    {
-      "src": "^/_next/data/EPPO4rkLDL0qlVGHRDcUD/teste2.json$",
+      "src": "^/_next/data/MQKBbkKD\\-d2rD4ZE84O3T/teste2.json$",
       "dest": "/teste2"
     },
     {
-      "src": "^/_next/data/EPPO4rkLDL0qlVGHRDcUD/teste3.json$",
+      "src": "^/_next/data/MQKBbkKD\\-d2rD4ZE84O3T/teste3.json$",
       "dest": "/teste3"
     },
     {
@@ -83,7 +79,7 @@
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|XPIQZB9deoVmKHIq51Eht)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|MQKBbkKD\\-d2rD4ZE84O3T)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },
@@ -156,6 +152,10 @@
     },
     "500.html": {
       "path": "500",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "teste1.html": {
+      "path": "teste1",
       "contentType": "text/html; charset=utf-8"
     }
   },
