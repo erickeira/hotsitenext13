@@ -31,6 +31,13 @@ export async function getServerSideProps({ req, res }) {
   )
   const response =  await fetch( "https://pokeapi.co/api/v2/pokemon/ditto");
   const list = await response.json()
-
+  if (!list) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
   return { props: { list } }
 }
