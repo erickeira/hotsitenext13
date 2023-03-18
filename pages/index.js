@@ -24,10 +24,7 @@ export default function Teste1({list}){
 }
 
 export async function getServerSideProps({ req, res }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=1200, stale-while-revalidate=600'
-  )
+
   const response =  await fetch( "https://pokeapi.co/api/v2/pokemon/ditto");
   const list = await response.json()
   if (!list) {
