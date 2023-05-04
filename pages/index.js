@@ -9,7 +9,7 @@ export default function Teste1({list}){
           <meta name="description" content={`Concessionária TESTE ${list.destaques.anuncios[0].vei_id}`} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
-          <meta property="og:image" content={`https://cdn.shopcar.com.br/${list.destaques.anuncios[0].vei_foto}`} />
+          <meta property="og:image" content={`https://cdn-dev.shopcar.com.br/${list.destaques.anuncios[0].vei_foto}`} />
         </Head>
         <div style={{paddingTop: 30}}>
             <Link href={"teste1"}
