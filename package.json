@@ -14,7 +14,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^0.4.2",
+    "@cloudflare/next-on-pages": "0.0.0-87e183b",
     "vercel": "^28.17.0"
   }
 }
