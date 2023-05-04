@@ -26,7 +26,7 @@ export default function Teste2({list}){
 
 export async function getServerSideProps({ req, res }) {
 
-  const response =  await fetch( "https://pokeapi.co/api/v2/pokemon/ditto");
+  const response =  await fetch( "https://pokeapi.co/api/v2/pokemon/venusaur");
   const list = await response.json()
 
   if (!list) {
