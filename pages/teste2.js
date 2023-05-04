@@ -17,15 +17,45 @@ export default function Teste2({list}){
         >
           Ir para pagina 3
         </Link>
-        <div style={{marginTop: 30}}>POKEMON API</div>
+        <div style={{marginTop: 30}}>MODELOS ANUNCIANTE 1722 -  MARCA ASA</div>
         <div style={{marginTop: 30}}>{JSON.stringify(list)}</div>
     </div>
     )
 }
 
 
+
 export async function getServerSideProps({ req, res }) {
-  const response =  await fetch( "https://pokeapi.co/api/v2/pokemon/ivysaur");
+  try {
+    let body = JSON.stringify({
+      acoes: 
+        [
+          {
+            acao: "modelos",
+            params:{ marca: "ASA" }
+          }   
+        ],
+      loja: 1722
+    }) 
+
+    const response = await fetch("https://api-dev.shopcar.com.br/hotsites/",{
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    })
+    
+    let list = await response.json()
+    return {    
+      props: {list}
+    }
+
+  } catch(e) {
+    return {
+      notFound: true
+    }
+  } 
+
+  const response =  await fetch( "https://api-dev.shopcar.com.br/hotsites/");
   const list = await response.json()
   if (!list) {
     return {
