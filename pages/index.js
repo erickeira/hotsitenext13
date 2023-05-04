@@ -1,7 +1,18 @@
+import Head from "next/head";
 import Link from "next/link";
 
 export default function Teste1({list}){
     return (
+      <>
+        <Head>
+          <title>TESTE HOTSITE - {list.destaques.anuncios[0].vei_id}</title>
+          <meta name="description" content={`Concessionária TESTE ${list.destaques.anuncios[0].vei_id}`} />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="og:image" property="og:image" content={`/alien.png`} />
+          <meta name="og:image:width" property="og:image:width" content="300" />
+          <meta name="og:image:height" property="og:image:height" content="300" />
+        </Head>
         <div style={{paddingTop: 30}}>
             <span></span>
             <Link href={"teste1"}
@@ -21,6 +32,7 @@ export default function Teste1({list}){
             <div style={{marginTop: 30}}>DESTAQUES ANUNCIANTE 1722</div>
             <div style={{marginTop: 30}}>{JSON.stringify(list)}</div>
         </div>
+      </>
     )
 }
 
