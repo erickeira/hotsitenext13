@@ -59,16 +59,16 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/MQKBbkKD\\-d2rD4ZE84O3T/index.json$",
+      "src": "^/_next/data/0Fu33IFAK6KqqtLJ7a_Mf/index.json$",
       "dest": "/"
     },
     {
-      "src": "^/_next/data/MQKBbkKD\\-d2rD4ZE84O3T/teste2.json$",
-      "dest": "/teste2"
+      "src": "^/_next/data/0Fu33IFAK6KqqtLJ7a_Mf/noticia/(?<id>[^/]+?)\\.json$",
+      "dest": "/noticia/[id]?id=$id"
     },
     {
-      "src": "^/_next/data/MQKBbkKD\\-d2rD4ZE84O3T/teste3.json$",
-      "dest": "/teste3"
+      "src": "^/_next/data/0Fu33IFAK6KqqtLJ7a_Mf/(?<view>[^/]+?)/(?<idview>[^/]+?)\\.json$",
+      "dest": "/[view]/[idview]?view=$view&idview=$idview"
     },
     {
       "src": "/_next/data/(.*)",
@@ -76,10 +76,18 @@
       "status": 404
     },
     {
+      "src": "^/noticia/(?<id>[^/]+?)(?:/)?$",
+      "dest": "/noticia/[id]?id=$id"
+    },
+    {
+      "src": "^/(?<view>[^/]+?)/(?<idview>[^/]+?)(?:/)?$",
+      "dest": "/[view]/[idview]?view=$view&idview=$idview"
+    },
+    {
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|MQKBbkKD\\-d2rD4ZE84O3T)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|0Fu33IFAK6KqqtLJ7a_Mf)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },
@@ -142,8 +150,7 @@
       "image/webp"
     ],
     "dangerouslyAllowSVG": false,
-    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
-    "contentDispositionType": "inline"
+    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;"
   },
   "overrides": {
     "404.html": {
@@ -153,14 +160,10 @@
     "500.html": {
       "path": "500",
       "contentType": "text/html; charset=utf-8"
-    },
-    "teste1.html": {
-      "path": "teste1",
-      "contentType": "text/html; charset=utf-8"
     }
   },
   "framework": {
-    "version": "13.2.4"
+    "version": "13.1.1"
   },
   "crons": []
 }

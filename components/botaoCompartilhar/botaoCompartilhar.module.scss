@@ -1,0 +1,33 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 23px;
+    .dropbtn {
+        background-color: #e0e0e0;
+        border-radius: 2px;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: center;
+        gap: 3.5px;
+        cursor: pointer;
+        color: #353535;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }      
+      .dropdownContent {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        padding: 5px 24px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        gap: 5px;
+        a {
+            text-decoration:none;
+            color: #353535;
+        }
+    }      
+    .show {
+        display: flex;
+        flex-direction: column;
+    }
+}

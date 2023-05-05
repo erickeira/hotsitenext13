@@ -1,0 +1,14 @@
+{
+  "runtime": "edge",
+  "name": "loja",
+  "deploymentTarget": "v8-worker",
+  "entrypoint": "index.js",
+  "envVarsInUse": [
+    "NEXT_PRIVATE_MINIMAL_MODE"
+  ],
+  "assets": [],
+  "framework": {
+    "slug": "nextjs",
+    "version": "13.1.1"
+  }
+}

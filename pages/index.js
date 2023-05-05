@@ -1,77 +1,75 @@
-import Head from "next/head";
-import Link from "next/link";
+import React, { useEffect, useState } from 'react'
+import CardAnuncio from "../components/cardAnuncio";
+import Busca from "../components/busca";
+import { lojaId, urlRequisicao, fetcher } from "../utils";
+import ListagemVeiculos from '../components/listagemVeiculos';
+import {BiSearch} from 'react-icons/bi'
+import Select from 'react-select'
+import styles from './pageInicial.module.scss'
+import Noticias from '../components/noticias';
+import CardContato from '../components/cardContato';
 
-export default function Teste1({list}){
-    return (
-      <>
-        <Head>
-          <title>TESTE HOTSITE - {list.destaques.anuncios[0].vei_id}</title>
-          <meta name="description" content={`Concessionária TESTE ${list.destaques.anuncios[0].vei_id}`} />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/favicon.ico" />
-          <meta property="og:image" content={`https://cdn-dev.shopcar.com.br/${list.destaques.anuncios[0].vei_foto}`} />
-        </Head>
-        <div style={{paddingTop: 30}}>
-            <Link href={"teste1"}
-              style={{
-                marginLeft: 10,
-                marginTop:30,
-                paddingTop: 10,
-                paddingBottom: 10,
-                paddingLeft:10,
-                paddingRight: 10,
-                backgroundColor: 'red',
-                borderRadius: 5
-              }}
-            >
-              Ir para pagina 1
-            </Link>
-            <div style={{marginTop: 30}}>DESTAQUES ANUNCIANTE 1722</div>
-            <div style={{marginTop: 30}}>{JSON.stringify(list)}</div>
+export default function  Home({data}) {
+  return null
+  const {destaques, ultimasnoticias, dadosloja} = data
+  return(
+    <>          
+      <div className={styles.container}>
+        <div className={styles.cardContatos}>
+          <CardContato dadosloja={dadosloja}/>
         </div>
-      </>
-    )
+        <Busca categoria="destaques" resultados={8} titulo={"Veículos em destaque."} ordenacao={false} />      
+        <div className={styles.cardContatosMobile}>
+          <CardContato dadosloja={dadosloja}/>
+        </div>
+      </div>
+      {    
+        ultimasnoticias ?   
+          <Noticias noticias={ultimasnoticias}/>
+        :
+        null
+      }    
+    </>
+  )
 }
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps(){
   try {
     let body = JSON.stringify({
       acoes: 
         [
           {
+            acao: "dadosloja"
+          },
+          {
             acao: "destaques",
-            params:{"resultados": 8 }
-          }   
+            params:{resultados: 8}
+          },
+          {
+            acao: "ultimasnoticias",
+            params:{resultados: 7}
+          },
+          {
+            acao: "marcas",
+          }         
         ],
-      loja: 1722
+      loja: lojaId
     }) 
 
-    const response = await fetch("https://api-dev.shopcar.com.br/hotsites/",{
+    const response = await fetch(urlRequisicao,{
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body
     })
-    
-    let list = await response.json()
+
+    const data = await response.json()
     return {    
-      props: {list}
+      props: {data}
     }
 
   } catch(e) {
     return {
       notFound: true
     }
-  } 
-
-  const response =  await fetch( "https://api-dev.shopcar.com.br/hotsites/");
-  const list = await response.json()
-  if (!list) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    }
-  }
-  return { props: { list } }
+  }   
 }
