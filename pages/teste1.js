@@ -1,18 +1,9 @@
-import Head from "next/head";
 import Link from "next/link";
 
 export default function Teste1({list}){
     return (
-      <>
-        <Head>
-          <title>TESTE HOTSITE - {list.destaques.anuncios[0].vei_id}</title>
-          <meta name="description" content={`Concessionária TESTE ${list.destaques.anuncios[0].vei_id}`} />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/favicon.ico" />
-          <meta property="og:image" content={`https://cdn-dev.shopcar.com.br/${list.destaques.anuncios[0].vei_foto}`} />
-        </Head>
         <div style={{paddingTop: 30}}>
-            <Link href={"/1062012"}
+            <Link href={"teste2"}
               style={{
                 marginLeft: 10,
                 marginTop:30,
@@ -24,14 +15,14 @@ export default function Teste1({list}){
                 borderRadius: 5
               }}
             >
-              Ir para pagina 1
+              Ir para pagina 2
             </Link>
-            <div style={{marginTop: 30}}>DESTAQUES ANUNCIANTE 1722</div>
+            <div style={{marginTop: 30}}>ESTOQUE ANUNCIANTE 1722</div>
             <div style={{marginTop: 30}}>{JSON.stringify(list)}</div>
         </div>
-      </>
     )
 }
+
 
 export async function getServerSideProps({ req, res }) {
   try {
@@ -39,7 +30,7 @@ export async function getServerSideProps({ req, res }) {
       acoes: 
         [
           {
-            acao: "destaques",
+            acao: "estoque",
             params:{"resultados": 8 }
           }   
         ],
