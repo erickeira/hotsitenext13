@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Teste1({list}){
     return (
         <div style={{paddingTop: 30}}>
-            <Link href={"teste2"}
+            <Link href={"/1062012"}
               style={{
                 marginLeft: 10,
                 marginTop:30,
