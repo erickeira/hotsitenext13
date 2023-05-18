@@ -59,24 +59,16 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/uGQNdW8BIzZLBWxP7P1hu/index.json$",
+      "src": "^/_next/data/sJbgKf4jL\\-D16ZuLx8_Tr/index.json$",
       "dest": "/"
     },
     {
-      "src": "^/_next/data/uGQNdW8BIzZLBWxP7P1hu/imovel/(?<id>[^/]+?)\\.json$",
+      "src": "^/_next/data/sJbgKf4jL\\-D16ZuLx8_Tr/imovel/(?<id>[^/]+?)\\.json$",
       "dest": "/imovel/[id]?id=$id"
     },
     {
-      "src": "^/_next/data/uGQNdW8BIzZLBWxP7P1hu/teste1.json$",
-      "dest": "/teste1"
-    },
-    {
-      "src": "^/_next/data/uGQNdW8BIzZLBWxP7P1hu/teste2.json$",
-      "dest": "/teste2"
-    },
-    {
-      "src": "^/_next/data/uGQNdW8BIzZLBWxP7P1hu/teste3.json$",
-      "dest": "/teste3"
+      "src": "^/_next/data/sJbgKf4jL\\-D16ZuLx8_Tr/noticia/(?<id>[^/]+?)\\.json$",
+      "dest": "/noticia/[id]?id=$id"
     },
     {
       "src": "/_next/data/(.*)",
@@ -88,10 +80,14 @@
       "dest": "/imovel/[id]?id=$id"
     },
     {
+      "src": "^/noticia/(?<id>[^/]+?)(?:/)?$",
+      "dest": "/noticia/[id]?id=$id"
+    },
+    {
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|uGQNdW8BIzZLBWxP7P1hu)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|sJbgKf4jL\\-D16ZuLx8_Tr)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },

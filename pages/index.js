@@ -12,25 +12,6 @@ export default function Teste1({list}){
 
     return (
       <>
-        
-        <div style={{paddingTop: 30}}>
-            <Link href={"/imovel/401636"}
-              style={{
-                marginLeft: 10,
-                marginTop:30,
-                paddingTop: 10,
-                paddingBottom: 10,
-                paddingLeft:10,
-                paddingRight: 10,
-                backgroundColor: 'red',
-                borderRadius: 5
-              }}
-            >
-              Ir para pagina 1
-            </Link>
-            <div style={{marginTop: 30}}>DESTAQUES ANUNCIANTE 1722</div>
-        </div>
-
         <Head>
           <link rel="apple-touch-icon" sizes="57x57" href={ `${urlFavicon}apple-icon-57x57.png`} />
           <link rel="apple-touch-icon" sizes="60x60" href={ `${urlFavicon}apple-icon-60x60.png`} />
@@ -78,7 +59,7 @@ export default function Teste1({list}){
               
                   <div className="content-search shadow">
                       <form className="d-flex flex-column h-100">        
-                          {/* <CardBusca/> */}
+                          <CardBusca/>
                       </form>
                   </div>
               </div>

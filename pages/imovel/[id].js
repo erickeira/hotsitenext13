@@ -7,14 +7,14 @@ import { Modal } from 'react-bootstrap';
 
 import ImageGallery from 'react-image-gallery';
 import { ToastContainer } from 'react-toastify';
-// import { AuthContext } from '../../context';
+import { AuthContext } from '../../context';
 import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite,existsOrError,IsEmail,isMobile,notify ,cloudflareLoader,scrollTopDist } from '../../utils';
 
 export default function Teste2({list}){
   const { dadosimovel, destaques }  = list;
   const idDinamico    = dadosimovel.id
-  // const { anunciante  } = useContext(AuthContext);
-  const anunciante = {}
+  const { anunciante  } = useContext(AuthContext);
+  // const anunciante = {}
   const [ isOpen , setOpen ] = useState(false);
   const [ showProposta, setShowProposta ] = useState(false);
   const [ showTelefones, setShowTelefones ] = useState(false);
@@ -48,22 +48,6 @@ export default function Teste2({list}){
 
     return (
       <div style={{paddingTop: 30}}>
-        <Link href={"/"}
-          style={{
-            marginLeft: 10,
-            marginTop:30,
-            paddingTop: 10,
-            paddingBottom: 10,
-            paddingLeft:10,
-            paddingRight: 10,
-            backgroundColor: 'red',
-            borderRadius: 5
-          }}
-        >
-          Ir para pagina home
-        </Link>
-        <div style={{marginTop: 30}}>DADOS ANUNCIO 1722</div>
-        {/* <div style={{marginTop: 30}}>{JSON.stringify(list)}</div> */}
         <Head>
 
             <link rel="apple-touch-icon" sizes="57x57" href={ `${urlFavicon}apple-icon-57x57.png`} />
@@ -422,9 +406,6 @@ export default function Teste2({list}){
 
 
 export async function getServerSideProps({ req, res, params }) {
-  const body = JSON.stringify({
-  
-  });
   try {
     let body = JSON.stringify({
       acoes: [
