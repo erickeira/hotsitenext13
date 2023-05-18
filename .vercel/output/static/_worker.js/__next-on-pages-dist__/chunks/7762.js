@@ -1,0 +1,1 @@
+var t=(o,e,a)=>{"use strict";var r,d;r=a(3475),d=a(8698),e.version=r.version,e.renderToString=r.renderToString,e.renderToStaticMarkup=r.renderToStaticMarkup,e.renderToNodeStream=r.renderToNodeStream,e.renderToStaticNodeStream=r.renderToStaticNodeStream,e.renderToReadableStream=d.renderToReadableStream};export{t as default};

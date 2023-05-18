@@ -1,0 +1,1 @@
+var p=t=>{function o(r){return t.exports=o=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(e){return e.__proto__||Object.getPrototypeOf(e)},t.exports.__esModule=!0,t.exports.default=t.exports,o(r)}t.exports=o,t.exports.__esModule=!0,t.exports.default=t.exports};export{p as default};

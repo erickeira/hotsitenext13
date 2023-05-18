@@ -1,0 +1,1 @@
+var c=(a,i,r)=>{"use strict";r.d(i,{s:()=>u});var n=r(7707);function s(e){return e.replace(/\\/g,"/")}function u(e){let t=s(e);return t.startsWith("/index/")&&!(0,n.$)(t)?t.slice(6):t!=="/index"?t:"/"}};export{c as default};

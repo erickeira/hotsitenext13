@@ -3,13 +3,13 @@
   "target": "preview",
   "argv": [
     "/Users/infoshop/.nvm/versions/node/v17.9.1/bin/node",
-    "/Users/infoshop/Documents/Nextjs/hotsitenext13/node_modules/.bin/vercel",
+    "/Users/infoshop/Documents/Nextjs/hotsitenext13/node_modules/.bin/next-on-pages-vercel-cli",
     "build"
   ],
   "builds": [
     {
       "require": "@vercel/next",
-      "requirePath": "/Users/infoshop/Documents/Nextjs/hotsitenext13/node_modules/@vercel/next/dist/index",
+      "requirePath": "/Users/infoshop/Documents/Nextjs/hotsitenext13/node_modules/next-on-pages-vercel-cli/node_modules/@vercel/next/dist/index",
       "apiVersion": 2,
       "src": "package.json",
       "use": "@vercel/next",

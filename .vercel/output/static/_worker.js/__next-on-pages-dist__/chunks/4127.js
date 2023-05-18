@@ -1,0 +1,1 @@
+var c=(u,f,n)=>{"use strict";n.d(f,{Q:()=>a,T:()=>r});let l=["__nextFallback","__nextLocale","__nextDefaultLocale","__nextIsNotFound"],_=["__nextDataReq"];function a(e){for(let t of l)delete e[t]}function r(e,t){for(let o of l)e.delete(o);if(t)for(let o of _)e.delete(o);return e}};export{c as default};

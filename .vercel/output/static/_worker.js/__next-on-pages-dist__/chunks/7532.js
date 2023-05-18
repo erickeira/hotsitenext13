@@ -1,0 +1,1 @@
+var h=(d,u,s)=>{"use strict";s.d(u,{W:()=>n,w:()=>i});var a=s(2374);function i(e){return(0,a.e)(e.split("/").reduce((t,r,c,o)=>!r||r.startsWith("(")&&r.endsWith(")")||r.startsWith("@")||(r==="page"||r==="route")&&c===o.length-1?t:`${t}/${r}`,""))}function n(e,t){return t?e.replace(/\.rsc($|\?)/,"$1"):e}};export{h as default};

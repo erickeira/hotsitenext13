@@ -59,15 +59,15 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/sJbgKf4jL\\-D16ZuLx8_Tr/index.json$",
+      "src": "^/_next/data/bw8KRd\\-fW9MqRIXsbc3a_/index.json$",
       "dest": "/"
     },
     {
-      "src": "^/_next/data/sJbgKf4jL\\-D16ZuLx8_Tr/imovel/(?<id>[^/]+?)\\.json$",
+      "src": "^/_next/data/bw8KRd\\-fW9MqRIXsbc3a_/imovel/(?<id>[^/]+?)\\.json$",
       "dest": "/imovel/[id]?id=$id"
     },
     {
-      "src": "^/_next/data/sJbgKf4jL\\-D16ZuLx8_Tr/noticia/(?<id>[^/]+?)\\.json$",
+      "src": "^/_next/data/bw8KRd\\-fW9MqRIXsbc3a_/noticia/(?<id>[^/]+?)\\.json$",
       "dest": "/noticia/[id]?id=$id"
     },
     {
@@ -87,7 +87,7 @@
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|sJbgKf4jL\\-D16ZuLx8_Tr)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|bw8KRd\\-fW9MqRIXsbc3a_)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },

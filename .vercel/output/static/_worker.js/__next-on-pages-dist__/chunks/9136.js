@@ -1,0 +1,1 @@
+var f=(a,i,t)=>{"use strict";t.d(i,{S:()=>u,Z:()=>n});var o=t(9111);function n(r){return typeof r=="object"&&r!==null&&"name"in r&&"message"in r}function u(r){return n(r)?r:Error((0,o.P)(r)?JSON.stringify(r):r+"")}};export{f as default};

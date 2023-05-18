@@ -1,0 +1,1 @@
+var f=(u,o,n)=>{"use strict";function e(t){return Object.prototype.toString.call(t)}function c(t){if(e(t)!=="[object Object]")return!1;let r=Object.getPrototypeOf(t);return r===null||r.hasOwnProperty("isPrototypeOf")}n.d(o,{A:()=>e,P:()=>c})};export{f as default};

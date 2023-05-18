@@ -1,0 +1,1 @@
+var d=(o,t,e)=>{"use strict";e.r(t),e.d(t,{default:()=>r});var a=e(3416);(0,a.g)();var u=e(1602),n=u.middleware||u.default;if(typeof n!="function")throw Error('The Edge Function "pages/api/getBusca" must export a `default` function');function r(i){return(0,a.V)({...i,page:"/api/getBusca",handler:n})}};export{d as default};

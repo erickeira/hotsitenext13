@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
+    "next": "13.2.4",
     "next-api-middleware": "^2.0.1",
     "query-string": "^7.1.1",
     "rc-slider": "^10.1.0",
+    "react": "18.2.0",
     "react-bootstrap": "^2.7.0",
+    "react-dom": "18.2.0",
     "react-image-gallery": "^1.2.11",
     "react-js-pagination": "^3.0.2",
     "react-modal": "^3.16.1",
@@ -32,7 +32,7 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "0.0.0-87e183b",
+    "@cloudflare/next-on-pages": "^1.0.0",
     "vercel": "^28.17.0"
   }
 }

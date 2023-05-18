@@ -1,0 +1,1 @@
+var f=(o,u,t)=>{"use strict";t.d(u,{t:()=>c});var e=t(1768),i=t(9689);function c(n){if(!(0,e.sD)(n))return!0;try{let r=(0,e.Dp)(),a=new URL(n,r);return a.origin===r&&(0,i.e)(a.pathname)}catch{return!1}}};export{f as default};

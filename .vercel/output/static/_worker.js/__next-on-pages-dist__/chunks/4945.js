@@ -1,0 +1,1 @@
+var c=($,e,r)=>{"use strict";r.d(e,{V:()=>n});var u=r(5004);function n(t,a){if(!t.startsWith("/")||!a)return t;let{pathname:s,query:h,hash:i}=(0,u.c)(t);return`${a}${s}${h}${i}`}};export{c as default};
