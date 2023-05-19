@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image'
 import {  moneyFormatter, cloudflareLoader, titleSite, urlFavicon, descriptionDefault, urlSite, apiId, apiUrl } from '../utils';
 import Link from 'next/link';
-import CardBusca from '../components/cardBusca/vertical';
+import CardBusca from '../components/cardBusca';
 
 
 export default function Teste1({list}){

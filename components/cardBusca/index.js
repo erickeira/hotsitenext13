@@ -67,17 +67,19 @@ export default function CardBusca(props){
         getBairros(queryInicial?.cidade || '')
         getValores(finalidade || queryInicial.finalidade || '')
     },[queryInicial]) 
-
+    
     const getFinalidades = async () => {
         const req = await handleRequest("finalidades", "")
         if(!req.finalidades) return
         setFinalidades(req.finalidades)
     }
+
     const getValores = async (id = "1") => {
         setLoadingValores(true)
         const req = await handleRequest("valores", [{ finalidade : id }])
         if(!req.valores) return
-        setValores({ valor_minimo : req.valores.valor_minimo || 0 , valor_maximo : req.valores.valor_minimo || 100 })
+        setValores({ valor_minimo : req.valores.valor_minimo  , valor_maximo : req.valores.valor_maximo })
+        setFormulario({...formulario, ...{finalidade: id, valorde: req.valores.valor_minimo , valorate : req.valores.valor_maximo }});
         setLoadingValores(false)
     }
 
@@ -94,7 +96,6 @@ export default function CardBusca(props){
     }
     const getCidades = async (id = "") => {
         const req = await handleRequest("cidades", [{ registro : id }])
-        
         if(!req.cidades) return
         setCidades(req.cidades)
     }
@@ -202,12 +203,16 @@ export default function CardBusca(props){
                                 min={parseInt(valores.valor_minimo)}
                                 max={parseInt(valores.valor_maximo)}
                                 values={[ 
-                                    formulario.valorde  || 0,
-                                    formulario.valorate || 100, 
+                                    formulario.valorde || parseInt(valores.valor_minimo),
+                                    formulario.valorate || parseInt(valores.valor_maximo), 
                                 ]}
                                 allowCross={false}
                                 allowOverlap={true}
-                                onChange={e => mudarDadosFormulario({ valorde: e[0], valorate: e[1] })}
+                                onChange={e => {
+                                    console.log(e)
+                                    mudarDadosFormulario({ valorde: e[0], valorate: e[1] })
+                                    
+                                }}
                                 renderTrack={({ props, children }) => (
                                     <div
                                         {...props}
@@ -235,7 +240,7 @@ export default function CardBusca(props){
                                         }} />
                             )} />
 
-
+                            
                             <div className="d-flex justify-content-between font-12 pt-3 pb-1 text-center">
                                 {
                                     loadingValores ? 
