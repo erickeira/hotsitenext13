@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { useRouter } from 'next/router';
 import {AuthContext} from '../../context';
 
-import {  moneyFormatter, getValores, utils  } from '../../utils';
+import {  moneyFormatter, getValores, utils, handleRequest  } from '../../utils';
 const customStyles = {
     
     menuPortal: provided => ({ ...provided, zIndex: 9999, fontSize: 14 }),
@@ -30,84 +30,82 @@ const customStyles = {
 
 export default function CardBusca(props){
 
-
     const router = useRouter();
     const queryInicial = router.query;
-    const { finalidades,tipoimoveis ,estados, valores, loadingDados, setValores} = useContext(AuthContext);
-    const { callbackclose} = props
-    const arrayFinalidades = finalidades.map(item => {return { value: item, label:item}}) 
+    // const { finalidades } = useContext(AuthContext);
+    const { callbackclose } = props
     const [ loading, setLoading] = useState(false);
-    const [ formulario, setFormulario ] = useState(props.formulario ? props.formulario : (queryInicial ? queryInicial : []));  
+    const [ formulario, setFormulario ] = useState({
+        finalidade: '',
+        tipo: '',
+        uf: '',
+        cidade: '',
+        bairro: '',
+        valorde: '',
+        valorate: ''
+    }); 
+    const [ finalidades, setFinalidades] = useState([]);
+    const [ tiposImoveis, setTiposImoveis] = useState([]);
+    const [ estados, setEstados ] = useState([]); 
     const [ cidades, setCidades ] = useState([]);        
-    const [ bairro, setBairro ] = useState([]); 
-    const { valor_minimo, valor_maximo } = valores
+    const [ bairros, setBairros ] = useState([]); 
+    const [ valores, setValores ] = useState({
+        valor_minimo : 0,
+        valor_maximo : 100
+    }); 
 
     function mudarDadosFormulario(dados){
         setFormulario({...formulario, ...dados});
     }
-
-    async function SetValores(){
-           let valor=""
-           let response = await getValores(valor);
-           return  setValores ( { ...valores, ...{ valor_minimo: parseInt(response.valor_minimo), valor_maximo: parseInt(response.valor_maximo)} });
+    
+    useEffect(() => {
+        getFinalidades()
+        getTiposImoveis()
+        getEstados()
+        getValores()
+    },[]) 
+    const getFinalidades = async () => {
+        const req = await handleRequest("finalidades", "")
+        if(!req.finalidades) return
+        setFinalidades(req.finalidades)
     }
-        useEffect(() => {
-        
-        if (valor_maximo === null && valor_minimo === null  || isNaN(valor_maximo) && isNaN(valor_minimo)){
-            SetValores();
-        }
-       
-    },[])
-
-
-    async function handleOptionChange(tipo, valor) {        
-   
-        if (tipo === 'finalidade') {
-            let response = await getValores(valor);
-            setValores({ ...valores,  valor_minimo: parseInt(response.valor_minimo), valor_maximo: parseInt(response.valor_maximo) })
-            return  setFormulario ( { ...formulario, finalidade: valor, valorde: parseInt(response.valor_minimo), valorate: parseInt(response.valor_maximo) });
-       
-        } else if (tipo === 'tipo') {
-            return setFormulario({ ...formulario, tipo: valor });
-        } else if (tipo === 'uf') {
-            let acao = "cidades"
-            setFormulario({ ...formulario, uf: valor });
-            setCidades([{value: '', label: 'Carregando'}]);
-            let response = await utils(acao ,valor);
-            return  setCidades(response.cidades);
-             
-        } else if (tipo === 'cidade') {
-            let acao = "bairros"
-            setFormulario({ ...formulario, cidade: valor });
-            setBairro([{value: '', label: 'Carregando'}]);
-            let response = await utils(acao ,valor);    
-            return setBairro(response.bairros);
-            
-        } else if (tipo === 'bairro') {
-            return setFormulario({ ...formulario, bairro: valor });            
-        } 
-
-        
+    const getValores = async (id = "1") => {
+        const req = await handleRequest("valores", [{ finalidade : id }])
+        if(!req.valores) return
+        setValores({ valor_minimo : req.valores.valor_minimo || 0 , valor_maximo : req.valores.valor_minimo || 100 })
     }
+    const getTiposImoveis = async () => {
+        const req = await handleRequest("tipoimoveis", "")
+        if(!req.tipoimoveis) return
+        setTiposImoveis(req.tipoimoveis)
+    }
+
+    const getEstados = async () => {
+          const req = await handleRequest("estados", "")
+          if(!req.estados) return
+          setEstados(req.estados)
+    }
+    const getCidades = async (id = "") => {
+        const req = await handleRequest("cidades", [{ registro : id }])
+        console.log(req)
+        if(!req.cidades) return
+        setCidades(req.cidades)
+    }
+    const getBairros = async (id = "") => {
+        const req = await handleRequest("bairros",  [{ registro : id }])
+        if(!req.bairros) return
+        setBairros(req.bairros)
+    }
+
+
 
     async function handleSubmit() {
-        if(callbackclose){
-            callbackclose()
-        }
-        if(!formulario.finalidade || formulario === undefined){ 
-            setFormulario ( { ...formulario, finalidade: "", valorde: parseInt(valor_minimo), valorate: parseInt(valor_maximo) })
-            return router.push({ pathname: '/busca', query: setFormulario });
-        }
-        
-        setLoading(false);
-         return router.push({ pathname: '/busca', query: formulario });
-        
-       
+        if(callbackclose)  callbackclose() 
+        return router.push({ pathname: '/busca', query: formulario }); 
     }    
-    
+
 
         return(
-       
             <>
            
             <h2 className="font-24 m-0 pb-3 color-primary">Encontre no Site</h2>
@@ -115,23 +113,78 @@ export default function CardBusca(props){
                     <div className="row">
     
                         <div className="col-12 pb-2 mb-1">
-                            <Select className="select" classNamePrefix="react-select" value={arrayFinalidades.find(item => item.value == (formulario.finalidade) )} placeholder="FINALIDADE" onChange={e => handleOptionChange('finalidade',e.value)}  options={arrayFinalidades} styles={customStyles} />
+                            <Select 
+                                className="select" 
+                                classNamePrefix="react-select" 
+                                value={finalidades.find(item => item.value == (formulario.finalidade))} 
+                                placeholder="FINALIDADE" 
+                                onChange={e => {
+                                    mudarDadosFormulario({ finalidade : e.value })
+                                    getValores(e.value)
+                                }}  
+                                options={finalidades} 
+                                styles={customStyles} 
+                            />
                         </div>
     
                         <div className="col-12 pb-2 mb-1">
-                            <Select className="select" classNamePrefix="react-select" value={tipoimoveis.find(item => item.value == (formulario.tipo) )} placeholder="TIPO DO IMÓVEL" onChange={e => handleOptionChange('tipo', e.value)} options={tipoimoveis} styles={customStyles} />
+                            <Select 
+                                className="select" 
+                                classNamePrefix="react-select" 
+                                value={tiposImoveis.find(item => item.value == (formulario.tipo) )} 
+                                placeholder="TIPO DO IMÓVEL" 
+                                onChange={e => {
+                                    mudarDadosFormulario({ tipo : e.value })
+                                }}  
+                                options={tiposImoveis} 
+                                styles={customStyles} 
+                            />
                         </div>
     
                         <div className="col-12 col-md-4 pb-2 mb-1 pr-3 pr-md-0">
-                            <Select className="select" classNamePrefix="react-select" placeholder="UF" value={estados.find(item => item.value == (formulario.uf) )} onChange={e => handleOptionChange('uf', e.value)} options={estados} styles={customStyles} />
+                            <Select 
+                                className="select" 
+                                classNamePrefix="react-select" 
+                                placeholder="UF" 
+                                value={estados.find(item => item.value == (formulario.uf) )} 
+                                onChange={e => {
+                                    mudarDadosFormulario({ uf : e.value })
+                                    getCidades(e.value)
+                                }}  
+                                options={estados} 
+                                styles={customStyles} 
+                            />
                         </div>
     
                         <div className="col-12 col-md-8 pb-2 mb-1 pl-3 pl-md-0">
-                            <Select className="select" classNamePrefix="react-select" value={ cidades?.find(item => item.value == formulario.cidade)} placeholder="CIDADE" onChange={e => handleOptionChange('cidade', e.value)} options={cidades} noOptionsMessage={() => 'Selecione'} styles={customStyles} />
+                            <Select 
+                                className="select" 
+                                classNamePrefix="react-select" 
+                                value={cidades?.find(item => item.value == formulario.cidade)} 
+                                placeholder="CIDADE" 
+                                onChange={e => {
+                                    mudarDadosFormulario({ cidade : e.value })
+                                    getBairros(e.value)
+                                }}  
+                                options={cidades} 
+                                noOptionsMessage={() => 'Selecione'}
+                                styles={customStyles} 
+                            />
                         </div>
     
                         <div className="col-12 pb-2 mb-2">
-                            <Select className="select" classNamePrefix="react-select" placeholder="BAIRRO" value={bairro.find(item => item.value == (formulario.bairro) )}  onChange={e => handleOptionChange('bairro', e.value)} options={bairro} styles={customStyles}  noOptionsMessage={() => 'Selecione' }  />
+                            <Select 
+                                className="select" 
+                                classNamePrefix="react-select" 
+                                placeholder="BAIRRO" 
+                                value={bairros.find(item => item.value == (formulario.bairro) )}  
+                                onChange={e => {
+                                    mudarDadosFormulario({ bairro : e.value })
+                                }}  
+                                options={bairros} 
+                                styles={customStyles}  
+                                noOptionsMessage={() => 'Selecione' } 
+                            />
                         </div>
     
                         <div className="col-12 pb-2 mb-1">
@@ -143,11 +196,11 @@ export default function CardBusca(props){
                                     
                                 <Range
     
-                                    min={parseInt(valor_minimo)}
-                                    max={parseInt(valor_maximo)}
+                                    min={parseInt(valores.valor_minimo)}
+                                    max={parseInt(valores.valor_maximo)}
                                     values={[ 
-                                        formulario.valorde  || valor_minimo  || 0,
-                                        formulario.valorate ||  valor_maximo || 100, 
+                                        formulario.valorde  || 0,
+                                        formulario.valorate || 100, 
                                     ]}
                                     allowCross={false}
                                     allowOverlap={true}
@@ -181,10 +234,8 @@ export default function CardBusca(props){
     
     
                                 <div className="d-flex justify-content-between font-12 pt-3 pb-1 text-center">
-    
-                                    {loadingDados ? <div style={{ backgroundColor: '#d1d1d1', height: 15, width: 80 }} /> : <div>R$  {moneyFormatter(formulario.valorde  || valor_minimo || 0)} </div>}
-                                    {loadingDados ? <div style={{ backgroundColor: '#d1d1d1', height: 15, width: 80 }} /> : <div>R$  {moneyFormatter(formulario.valorate || valor_maximo || 0)} </div>}
-    
+                                    <div>R$  {moneyFormatter(formulario.valorde  || valores.valor_minimo || 0)} </div>
+                                    <div>R$  {moneyFormatter(formulario.valorate || valores.valor_maximo || 0)}</div>
                                 </div>
                             </div>
     

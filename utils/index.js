@@ -185,45 +185,33 @@ const loaderImage = ({ src, width, quality }) => {
 };
 
 
-async function utils (metodo , valor){
-    const reqMetodo = JSON.stringify({metodo,valor});
-      
-    let novaUrl = `api/getUtils`;
-      const response =  await fetch(
-        novaUrl,
-          {
+
+async function handleRequest(metodo, params){
+    try{
+        let body = JSON.stringify({
+            acoes: [                        
+                { metodo , params }
+            ], id: apiId
+        }) 
+        const response = await fetch("/api",{
             method: 'POST',
-            body: reqMetodo
-          }
-      
-      );
-      const list = await response.json()
-      return list
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: body
+        })
+        let data = await response.json()
+        return data
+    }catch {
+        return {}
+    }
+    
 }
 
-async function getValores(valor) {
 
-      let novaUrl = `api/getValor`;
-      const response =  await fetch(
-        novaUrl,
-          {
-            method: 'POST',
-            body: valor
-          }
-      
-      );
-      const list = await response.json()
-        
-      return list 
-}
- 
 export { 
     apiUrl,     
     apiId, 
     urlImgs, 
     urlSite,
-    utils,
-    getValores,
     descriptionDefault,
     moneyFormatter, 
     existsOrError,     
@@ -245,5 +233,6 @@ export {
     reloadTime,
     urlFavicon,
     urlFacebook,
-    urlInstagram
+    urlInstagram,
+    handleRequest
 }

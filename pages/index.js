@@ -172,16 +172,4 @@ export async function getServerSideProps({ req, res }) {
       notFound: true
     }
   } 
-
-  const response =  await fetch( "https://api-dev.shopcar.com.br/hotsites/");
-  const list = await response.json()
-  if (!list) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    }
-  }
-  return { props: { list } }
 }

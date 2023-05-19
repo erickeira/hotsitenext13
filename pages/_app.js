@@ -15,3 +15,32 @@ export default function App({ Component, pageProps }) {
     </AuthProvider>
   )
 }
+
+export async function getServerSideProps({ req, res }) {
+  try {
+    let body = JSON.stringify({
+      acoes: [                        
+        { metodo: "destaques", params: [ { resultados: "4" }] },
+        { metodo: "ultimasnoticias", params: [ { resultados: "4" }] },
+        
+      ], id: 328
+    }) 
+
+    const response = await fetch("https://dev.infoimoveis.com.br/webservice/hotsites.php",{
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    })
+    
+    let list = await response.json()
+    console.log(list)
+    return {    
+      props: {list}
+    }
+
+  } catch(e) {
+    return {
+      notFound: true
+    }
+  } 
+}
