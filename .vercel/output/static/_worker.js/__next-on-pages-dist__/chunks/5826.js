@@ -1,0 +1,1 @@
+var o=(l,r,t)=>{"use strict";t.d(r,{R:()=>u});var a=t(3066),s=t(169);let u=e=>{if(!e.startsWith("/"))return e;let{pathname:h,query:i,hash:n}=(0,s.c)(e);return`${(0,a.Q)(h)}${i}${n}`}};export{o as default};

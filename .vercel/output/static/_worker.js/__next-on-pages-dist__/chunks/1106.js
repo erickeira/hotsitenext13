@@ -1,0 +1,1 @@
+var a=(x,n,s)=>{"use strict";s.d(n,{Z:()=>i});var t=s(5893),e=s(6859);function i(){return(0,t.jsxs)(e.Html,{lang:"en",children:[(0,t.jsx)(e.Head,{}),(0,t.jsxs)("body",{children:[(0,t.jsx)(e.Main,{}),(0,t.jsx)(e.NextScript,{})]})]})}};export{a as default};

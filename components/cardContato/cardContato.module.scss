@@ -1,0 +1,169 @@
+.dadosLoja{
+    background-color: var(--corBackground);
+    box-shadow: #00000030 0px 10px 30px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    .envolveDadosLoja{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px 0;
+
+        .nomeLoja{
+            color: var(--corTema1);
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    
+        .enderecoLoja{
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+    
+        .telefonesLoja{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 2px 0;
+            
+            .telefones{
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                cursor: pointer;
+                display: flex;
+                gap: 5px;      
+            }
+            .telefones:hover{
+                color: var(--corTema1);
+            }
+            
+        }
+
+        .envolveMapaHorarios{
+            display: flex;
+            gap: 10px;
+
+            .listaHorarios{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            }
+            .botaoHorariosAtendimento{
+                border: 1px solid var(--corTema1);
+                padding: 3px;
+                border-radius: 5px;
+                cursor: pointer;
+                color: var(--corTema1);
+                background-color: var(--corBackground);    
+            }
+            .botaoHorariosAtendimento:hover{
+                background-color: var(--corTema1);
+                color: rgb(255, 255, 255);
+            }
+        
+            .botaoMapaLoja{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                background-color: var(--corBackground);
+                color: var(--corTema1);
+                border: 1px solid;
+                border-color: var(--corTema1);
+                width: 55px;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+            .botaoMapaLoja:hover{
+                color: white;
+                background-color: var(--corTema1);
+            }
+        }
+        
+    }   
+
+}
+
+.listaHorarios{
+    display: flex;
+    flex-direction: column;
+    .tituloHorarios{
+        width: 100%;
+        text-align: center;
+        padding-bottom: 10px;        
+    }
+    .envolveHorarios{
+        display: flex;
+        .horarios{
+            display: flex;
+            gap: 15px;
+            padding: 5px;
+            .nomeDia{
+                width: 30px;
+                display: flex;
+                align-items: center;
+            }
+            .envolveHoras{   
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .horas{
+                    background-color: rgb(221, 221, 221);
+                    border-radius: 4px;                    
+                    padding: 4px 8px;
+                    margin-left: 10px;
+                    border: 2px solid white;
+                }
+            }
+            
+        }
+    }
+
+}
+
+.mapa{
+    width: 600px; 
+    height: 500px; 
+}
+
+
+.botaoFecharModal{
+    // margin-top: 15px;
+    // display: block;
+    // padding: 8px;
+    // box-sizing: border-box;
+    // width: 100%;
+    // background: #F5F5F5;
+    // border: 1px solid #E5E5E5;
+    // box-shadow: inset 0 1px 0 #fff;
+    // font-size: 15px;
+    // border-radius: 4px;
+    // cursor: pointer;
+    // user-select: none;
+    // text-align: center;
+    position: absolute;
+    top: 0;
+    margin: 4px;
+    right: 0;
+}
+.botaoFecharModal:hover{
+    cursor: pointer;
+}
+
+@media screen {
+    @media (max-width:767px) {
+        .mapa{
+            width: 90vw; 
+            height: 60vh;
+        }
+        .listaHorarios{
+            width: 300px; 
+            height: 250px;
+            justify-content: center;
+            align-items: center;
+        }
+    }    
+}

@@ -1,0 +1,1 @@
+var o=(u,t,e)=>{"use strict";function i(n){return n.startsWith("/")?n:`/${n}`}e.d(t,{y:()=>s});var r=e(8858),d=e(9737);function s(n){return i(/^\/index(\/|$)/.test(n)&&!(0,r.$)(n)?`/index${n}`:n==="/"?"/index":n)}};export{o as default};

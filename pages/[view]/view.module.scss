@@ -1,0 +1,211 @@
+.container{
+    // background-color: bisque;
+    width: 1170px;
+    margin: 50px auto 100px auto;
+    .marcaModeloECompartilhar{        
+        font-size: 24px;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        .dropdown {
+            position: absolute;
+            display: inline-block;
+            right: 10px;
+            // padding-top: 23px;
+            .dropbtn {
+                background-color: #e0e0e0;
+                border-radius: 2px;
+                padding: 5px 10px;
+                display: flex;
+                justify-content: center;
+                gap: 3.5px;
+                cursor: pointer;
+                color: #353535;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+              }      
+              .dropdownContent {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                padding: 5px 24px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                gap: 5px;
+                a {
+                    font-size: 14px;
+                    text-decoration:none;
+                    color: #353535;
+                }
+            }      
+            .show {
+                display: flex;
+                flex-direction: column;
+            }
+        }    
+    }    
+    .envolveImagensComDados{
+        display: flex;
+        margin-bottom: 50px;
+        gap: 2%;
+        .EnvolveDadosAnuncio{
+            width: 42%;
+            // padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            
+            .opcionaisDescricaoObservacao{
+                border: 1px solid #d1d1d1;
+                padding: 10px;
+                border-radius: 5px;
+                .containerOpcionais{                                        
+                    .opcionaisGrid{
+                        margin: 10px 0;
+                        column-count: 2;
+                        div{
+                            .opcionais{
+                                background-color: #e0e0e067;
+                                font-style: italic;
+                                border-radius: 3px;
+                                color: #0f0f0f85;
+                                display: inline-block;
+                                padding: 2px 7px 2px 5px;
+                                font-size: 12px;
+                                box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+                            }
+                        }                        
+                    }
+                }
+                .descricao , .observacoes{
+                    margin: 20px 0;
+                    p{
+                        margin: 10px 0;
+                        font-style: italic;                        
+                        color: #000000b0;
+                    }
+                }
+                
+            }
+            .envolveAnoCorCombustivelKm{     
+                display: flex;
+                justify-content: space-between;
+                .anoCorCombustivelKm{
+                    display: flex;
+                    font-weight: bold;
+                    padding: 10px;
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid #d1d1d1;
+                    margin-bottom: 15px;
+                }
+            }
+            .preco{
+                color: white;
+                background-color: rgb(110, 110, 110);
+                font-size: 30px;
+                padding: 10px;
+                text-align: end;
+                border-radius: 5px;
+                font-weight: 700;
+            }
+        }
+
+        .galeriaImagens{
+            width: 58%;
+            padding: 10px 10px 10px 0; 
+                 
+            .envolveImagemSemFoto{                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 400px;
+                background-color: #dadada;
+                span{
+                    color: #adadad;
+                    font-size: 17px;
+                    margin-top: 8px;
+                }
+            }
+        }        
+    }     
+}
+
+.AlinhaCard{
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 0px;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+.cardForm_cardBotao {
+    display: flex;
+    width: 102%;
+    justify-content: flex-end;
+}   
+
+@media (min-width: 995px) and (max-width: 1249px) {
+    .container{
+        max-width: 968px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 994px) {        
+    .container{
+        max-width: 760px;
+        .envolveImagensComDados{
+            .galeriaImagens{
+                .envolveImagemSemFoto{
+                    height: 300px;            
+                }
+            }
+        }
+        
+    }
+}
+
+@media (max-width:767px) {
+    .container{
+        width: 90%;
+        .marcaModeloECompartilhar{
+            .dropdown {
+                right: 0;
+                top: -10px;
+            }
+        }
+        .envolveImagensComDados{
+            flex-direction: column;            
+            .galeriaImagens{
+                width: 100%;
+                min-height: 300px;
+                .envolveImagemSemFoto{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 300px;
+                    background-color: #dadada;
+                    span{
+                        color: #adadad;
+                        font-size: 17px;
+                        margin-top: 8px;
+                    }
+                }
+            }
+            .EnvolveDadosAnuncio{
+                width: 100%;
+            }
+            
+        }        
+    }
+}

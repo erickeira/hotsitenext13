@@ -1,0 +1,1 @@
+var x=(o,u,s)=>{"use strict";s.d(u,{Am:()=>c,i4:()=>e,ph:()=>t,pz:()=>r,vu:()=>l,yR:()=>a});let e="RSC",t="Next-Router-State-Tree",r="Next-Router-Prefetch",a="x-vercel-sc-headers",c=`${e}, ${t}, ${r}`,l=[[e],[t],[r]]};export{x as default};

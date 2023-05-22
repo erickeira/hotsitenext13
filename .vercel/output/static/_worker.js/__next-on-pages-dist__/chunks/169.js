@@ -1,0 +1,1 @@
+var h=(t,s,i)=>{"use strict";function u(n){let e=n.indexOf("#"),a=n.indexOf("?"),r=a>-1&&(e<0||a<e);return r||e>-1?{pathname:n.substring(0,r?a:e),query:r?n.substring(a,e>-1?e:void 0):"",hash:e>-1?n.slice(e):""}:{pathname:n,query:"",hash:""}}i.d(s,{c:()=>u})};export{h as default};

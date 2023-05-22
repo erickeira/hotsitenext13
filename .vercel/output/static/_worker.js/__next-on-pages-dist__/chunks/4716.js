@@ -1,1 +1,0 @@
-var i=(u,t,e)=>{"use strict";e.r(t),e.d(t,{default:()=>n});var a=e(3416);(0,a.g)();var o=e(665),d=o.middleware||o.default;if(typeof d!="function")throw Error('The Edge Function "pages/api/getDados" must export a `default` function');function n(r){return(0,a.V)({...r,page:"/api/getDados",handler:d})}};export{i as default};

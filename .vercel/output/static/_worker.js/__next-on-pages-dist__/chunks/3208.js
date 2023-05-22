@@ -1,0 +1,1 @@
+var c=(L,s,f)=>{"use strict";function r(t,u,e){let l;if(t)for(let o of(e&&(e=e.toLowerCase()),t)){var a,i;let d=(a=o.domain)==null?void 0:a.split(":")[0].toLowerCase();if(u===d||e===o.defaultLocale.toLowerCase()||((i=o.locales)==null?void 0:i.some(n=>n.toLowerCase()===e))){l=o;break}}return l}f.d(s,{D:()=>r})};export{c as default};

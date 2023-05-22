@@ -1,126 +1,123 @@
-import { useEffect } from 'react';
+import styles from './viewNoticia.module.scss'
+import {ImShare} from 'react-icons/im'
+import Image from "next/image"
+import { loaderImagens, urlImg } from '../../utils/index';
+import { lojaId, urlRequisicao, fetcher } from "../../utils";
+import Modal from '../../components/modal'
+import {BiSearch} from 'react-icons/bi'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/scss/image-gallery.scss";
 import Head from 'next/head';
-import Image from 'next/image';
-import ContentHeade from '../../components/ContentHeader';
-import { apiUrl,  apiId, urlImgs, urlSite, titleSite, urlFavicon, cloudflareLoader } from '../../utils';
 
-export default function Noticia(props) {    
+export default function ViewNoticia ({data}) { 
 
-    const {noticia}= props;
-   
-    useEffect(() => {
-        let iframeVideo = document.getElementsByTagName("iframe")
-        let tela = window.screen;
-        for (var i = 0; i < iframeVideo.length; i++) {
-           if(tela.width < 700){
-            iframeVideo[i].width = tela.width * 0.85 
-            iframeVideo[i].height = (tela.width * 0.85) * 0.6 
-           }
-        }
-    },[])
+  const [showMenu, setShowMenu] = useState(false);
 
+  const toggleMenu = () => setShowMenu(!showMenu);
 
-    return (
-        <>        
-            <Head>
+  const closeMenu = () => setShowMenu(false);
 
-                <link rel="apple-touch-icon" sizes="57x57" href={ `${urlFavicon}apple-icon-57x57.png`} />
-                <link rel="apple-touch-icon" sizes="60x60" href={ `${urlFavicon}apple-icon-60x60.png` } />
-                <link rel="apple-touch-icon" sizes="72x72" href={ `${urlFavicon}apple-icon-72x72.png` } />
-                <link rel="apple-touch-icon" sizes="76x76" href={ `${urlFavicon}apple-icon-76x76.png` } />
-                <link rel="apple-touch-icon" sizes="114x114" href={ `${urlFavicon}apple-icon-114x114.png` } />
-                <link rel="apple-touch-icon" sizes="120x120" href={ `${urlFavicon}apple-icon-120x120.png` } />
-                <link rel="apple-touch-icon" sizes="144x144" href={ `${urlFavicon}apple-icon-144x144.png` } />
-                <link rel="apple-touch-icon" sizes="152x152" href={ `${urlFavicon}apple-icon-152x152.png` } />
-                <link rel="apple-touch-icon" sizes="180x180" href={ `${urlFavicon}apple-icon-180x180.png` } />
-                <link rel="icon" type="image/png" sizes="192x192"  href={ `${urlFavicon}android-icon-192x192.png` } />
-                <link rel="icon" type="image/png" sizes="32x32" href={ `${urlFavicon}favicon-32x32.png` } />
-                <link rel="icon" type="image/png" sizes="96x96" href={ `${urlFavicon}favicon-96x96.png` } />
-                <link rel="icon" type="image/png" sizes="16x16" href={ `${urlFavicon}favicon-16x16.png` } />
-                <meta name="msapplication-TileColor" content="#ffffff" />
-                <meta name="msapplication-TileImage" content={ `${urlFavicon}ms-icon-144x144.png` } />
-                <meta name="theme-color" content="#ffffff" />
+  const { query } = useRouter();
 
-                <meta name="description" content={noticia.resumo} />
-                <meta name="og:site_name" property="og:site_name" content={titleSite} />
-                <meta name="og:url" property="og:url" content={`${urlSite}/noticia/${noticia.id}`} />
-                <meta name="og:title" property="og:title" content={noticia.titulo} />
-                <meta name="og:description" property="og:description" content={noticia.resumo} />                             
-                <meta name="og:image" property="og:image" content={`${urlImgs}/${noticia.imagem}`} />
-                <meta name="og:image:width" property="og:image:width" content="640" />
-                <meta name="og:image:height" property="og:image:height" content="480" />
-                <title>{ Object.keys(noticia).length > 0 ? `${noticia.titulo} | Notícia | ${titleSite}` : `${titleSite}`}</title>
-            </Head>
+  const {viewnoticia} = data;
 
-            <div  className="main">
-            
-                {/* <ContentHeade title="Notícia"  /> */}
+  const noticia = viewnoticia;
 
-                <div className="container noticia px-4 px-sm-0">        
-                    
-                        <>
-                        <div className="pt-5 pb-4 border-bottom">
-                            <div className="font-12 opacity-75 pb-3">{ noticia.data }</div>
-                            <h2 className="font-32 font-md-40 line-height-130 color-primary m-0 p-0">{ noticia.titulo }</h2>
-                        </div>
+  const [fotoModal, mudaFotoModal] = useState(null);
 
-                        <div className="d-table w-100 pt-4 pb-5 font-16 line-height-160 texto">
-                            
-                            { noticia.imagem && ( 
-                                <div className=" float-md-left mr-0 mr-md-4 mb-4 opacity-75 noticiaOrganizada">
-                                    <Image className="mx-auto mx-md-0" src={noticia.imagem} alt={noticia.titulo} loader={cloudflareLoader} width="300" height="300"/> 
-                                    <span className="d-block font-12 font-italic pt-1 text-center">{ noticia.fonte }</span>
-                                </div> 
-                            ) }
+  const[modalImagemAberta, setmodalImagemAberta] = useState(false);
+  function abrirModalImagem(foto) {
+    mudaFotoModal(foto)   
+    setmodalImagemAberta(true)
+  };
+  function fecharModalImagem() {
+    setmodalImagemAberta(false)
+  };
 
-                            <div>
-                                <div className="redes-sociais d-flex align-items-center justify-content-end py-2 mb-3">
-                                    <span className="font-11 font-italic mr-2">Compartilhar:</span>
-                                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}/noticia/${noticia.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</a>   
-                                    <a href={`https://twitter.com/intent/tweet?text=${urlSite}/noticia/${noticia.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</a>
-                                    <a href={`https://api.whatsapp.com/send?text=${urlSite}/noticia/${noticia.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer nofollow">Whatsapp</a>
-                                </div>
-                                <div className="texto" dangerouslySetInnerHTML={{__html: noticia.texto}}></div>                         
-                            </div>
+  const textoNoticia = noticia.art_texto;
 
-                        </div>
-                        </>
-                   
+  return(
+    <>
+      <Head> 
+          <meta property="og:type" content="product" />
+          <meta property="og:description" content="Fique por dentro de noticías sobre o mundo automotivo." />
+          <meta property="og:image" content="/img/compartilhamento.jpg" />
+          <meta property="og:image:width" content="400" />
+          <meta property="og:image:height" content="400" />
+          <title>Noticias.</title>
+      </Head>
+      <div className={styles.container}>
+        <div className={styles.envolveTituloComBotaoCompartilhar}>
+            <h1 className={styles.tituloNoticia}>{noticia.art_titulo.split('.')}</h1>
+            <div className={styles.dropdown}>
+              <button onClick={toggleMenu} className={styles.dropbtn}>
+                <ImShare/> Compartilhar
+              </button>
+              <div className={`${styles.dropdownContent} ${showMenu && styles.show}`} onBlur={closeMenu}>
+                <a target="_blank" href={`https://api.whatsapp.com/send?text=www.nomedosite.com.br/noticia/${query.id}`}>WhatsApp</a>
+                <a target="_blank" href={`https://www.facebook.com/sharer/sharer.php?u=https://www.nomedosite.com.br/noticia/${query.id}`}>Facebook</a>
+              </div>
+            </div>
+        </div>
+        <p className={styles.fonteNoticia}>{noticia.art_fonte}</p>
+        <div className={styles.envolveImagemComTextoNoticia}>
+          <div className={styles.textoNoticiaComImagemPincipal}>
+            <div className={styles.envolveImagens}>
+              {
+                noticia.art_fotos[0] 
+                ?
+                  <ImageGallery
+                    width={200}
+                    height={200}
+                    items={noticia.art_fotos?.map(foto => { return { original: `${urlImg}${foto.replace('pd', '')}`, thumbnail: `${urlImg}redim/200/${foto}`}}) || [{original: "", thumbnail: ""}]}
+                    showFullscreenButton={false}
+                    showPlayButton={false}
+                    showThumbnails={noticia.art_fotos?.length > 1}
+                />                  
+                :
+                null
+              }
+            </div>
+            <div className={styles.textoNoticia} dangerouslySetInnerHTML={{__html: textoNoticia}}></div>
+          </div>
+        </div>                
+    </div>
 
-                          
-
-                </div>    
-
-            </div>            
-                
-        </>
-            
-    );
+    </>
+    
+  )
 }
 
-
-export async function getServerSideProps({ req, res, params }) {
-   
-    const corpo = await JSON.stringify( {
-      acoes: [                        
-        { metodo: "noticia", params:  [{ registro: params.id }] },
-      ], id: apiId
-    });
-    const resposta = await fetch(    
-      apiUrl,
-      {
+export async function getServerSideProps({req, res, query}){
+    let idNoticia = req.url.split('/')[2]
+    try {
+      let body = JSON.stringify({
+        "acoes": 
+          [           
+            {
+              "acao": "viewnoticia",
+              "params":{"id": query.id || idNoticia}
+            }
+          ],
+        "loja": lojaId
+      })
+  
+      const response = await fetch(urlRequisicao,{
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: corpo
+        body: body
+      })
+  
+      const data = await response.json()
+      return {    
+        props: {data}
       }
-     
-    )
-   
-    const list = await resposta.json()
-      
-    return {
-      props: list, 
-    }
+  
+    } catch(e) {
+      return {
+        notFound: true
+      }
+    }     
 }
-
-

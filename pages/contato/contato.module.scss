@@ -1,0 +1,153 @@
+
+.containerPageContato{
+    margin: 0 auto;
+    max-width: 1170px;
+}
+.content{background-color:#F5F5F5}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.pageHeader {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.imgPedido{
+    width: 370px;
+    height: 232px;
+    border-radius: 6px; 
+    margin: 6px 0; 
+}
+
+.botaoFrom{margin-top: 15px;text-align: right; }
+
+.panelHeading{
+    padding: 10px 0px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+} 
+
+.formControl {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
+    background: transparent;
+    border-radius: 0;
+    color: #dc3545;
+    border: 0.5px solid #e9e9e9;
+    display: block;
+    width: 100%;
+    background-color: #f8f9fa;
+}
+
+.textSub{color: #777; margin-bottom: 10px;}
+
+.content.loja,.content.contato,.content.pg-contato,.content.pedidos{padding:0 0 50px 0}
+
+.infoEsquerda {
+    flex: 0 0 auto;
+    width: calc(33% - 20px);
+    padding: 0 10px;
+    padding: 20px;
+    p{
+        margin: 10px auto;
+    }
+}
+.infoDireita{
+    flex: 0 0 auto;
+    width: 65%;
+}
+
+.AlinhaCard{
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (min-width: 995px) and (max-width: 1249px) {
+    .containerPageContato{
+        max-width: 968px;
+        .envolveConteudoPageContato{
+            .row{
+                .infoEsquerda{
+                    .imgPedido{
+                        width: 300px;
+                        height: 188px;
+                    }
+                }                
+            }            
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 994px) {        
+    .containerPageContato{
+        max-width: 760px;
+        .envolveConteudoPageContato{
+            .row{
+                .infoEsquerda{
+                    .imgPedido{
+                        width: 225px;
+                        height: 133px;
+                    }
+                }                
+            }            
+        }
+    }    
+}
+
+@media (min-width: 995px) and (max-width: 1249px) {
+    .containerPageContato{
+        width: 968px;   
+    }       
+}
+
+@media (min-width: 770px) and (max-width: 994px) {      
+    .containerPageContato{
+        max-width: 760px;
+    }      
+}
+
+@media (max-width:769px) {        
+    .containerPageContato{
+        width: 90%;
+        .envolveConteudoPageContato{            
+            .row{                    
+                flex-direction: column;
+                justify-content: center;
+                .infoEsquerda{
+                    width: 100%;
+                    padding: 0;
+                    .imgPedido{
+                        margin: 0 auto;
+                        width: 100%;
+                        height: 49%;
+                    }
+                }
+                .infoDireita{
+                    width: 100%;
+                }
+            }                
+                      
+        }
+    }  
+}

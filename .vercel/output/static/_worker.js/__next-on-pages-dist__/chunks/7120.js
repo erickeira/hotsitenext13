@@ -1,1 +1,0 @@
-var d=(i,t,e)=>{"use strict";e.r(t),e.d(t,{default:()=>n});var a=e(3416);(0,a.g)();var r=e(3206),o=r.middleware||r.default;if(typeof o!="function")throw Error('The Edge Function "pages/api/getValor" must export a `default` function');function n(u){return(0,a.V)({...u,page:"/api/getValor",handler:o})}};export{d as default};

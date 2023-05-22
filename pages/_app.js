@@ -1,46 +1,37 @@
-import '../styles/globals.css'
-import AuthProvider from '../context';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Menu from '../components/menuTopo';
+import styles from '../styles/styles.module.scss';
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import '../styles/globals.css';
+
+import Rodape from '../components/rodape'
+import { tema } from '../utils';
 
 
 
 export default function App({ Component, pageProps }) {
-  return (
-    <AuthProvider>
-      <Header/>
-      <Component {...pageProps} />
-      <Footer/>
-    </AuthProvider>
-  )
-}
 
-export async function getServerSideProps({ req, res }) {
-  try {
-    let body = JSON.stringify({
-      acoes: [                        
-        { metodo: "destaques", params: [ { resultados: "4" }] },
-        { metodo: "ultimasnoticias", params: [ { resultados: "4" }] },
-        
-      ], id: 328
-    }) 
+  const key = "6Le-0JklAAAAAGkZkeACpvn-22R9kplIB2-LEnHt"
 
-    const response = await fetch("https://dev.infoimoveis.com.br/webservice/hotsites.php",{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    })
+  return(    
+      <>
+            <GoogleReCaptchaProvider
+            reCaptchaKey={key}
+            scriptProps={{
+              async: false,
+              defer: false,
+              appendTo: "head",
+              nonce: undefined,
+            }}
+          >
+        <Menu/>
+        <div className={styles.container}>
+          <Component {...pageProps} /> 
+          
+
+        </div>
+        </GoogleReCaptchaProvider> 
+        <Rodape/>  
+      </>  
     
-    let list = await response.json()
-    console.log(list)
-    return {    
-      props: {list}
-    }
-
-  } catch(e) {
-    return {
-      notFound: true
-    }
-  } 
+  )  
 }

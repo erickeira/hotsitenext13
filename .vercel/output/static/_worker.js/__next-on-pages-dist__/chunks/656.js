@@ -1,1 +1,0 @@
-var c=(u,e,t)=>{"use strict";t.d(e,{e:()=>s});var h=t(9782),o=t(8335);function s(a){if(a.startsWith("/"))return(0,o.u)(a);let r=new URL(a);return{hash:r.hash,hostname:r.hostname,href:r.href,pathname:r.pathname,port:r.port,protocol:r.protocol,query:(0,h.u5)(r.searchParams),search:r.search}}};export{c as default};

@@ -1,1 +1,1 @@
-var n=(i,t,b)=>{"use strict";b.d(t,{Z:()=>r});let e=new Proxy(g=>g,{get:(g,s)=>["hex","rgb","ansi256","bgHex","bgRgb","bgAnsi256"].includes(s)?()=>e:e}),r=e};export{n as default};
+var r=(n,g,b)=>{"use strict";b.d(g,{Z:()=>i});let e=new Proxy(t=>t,{get:(t,s)=>["hex","rgb","ansi256","bgHex","bgRgb","bgAnsi256"].includes(s)?()=>e:e}),i=e};export{r as default};

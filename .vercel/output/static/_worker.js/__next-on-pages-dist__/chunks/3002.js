@@ -1,1 +1,0 @@
-var o=(x,i,e)=>{"use strict";e.d(i,{y:()=>u});var r=e(2374),d=e(7707),a=e(1768);function u(t){return(0,r.e)(/^\/index(\/|$)/.test(t)&&!(0,d.$)(t)?`/index${t}`:t==="/"?"/index":t)}};export{o as default};

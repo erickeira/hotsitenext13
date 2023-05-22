@@ -4,14 +4,11 @@
   "deploymentTarget": "v8-worker",
   "entrypoint": "index.js",
   "envVarsInUse": [
-    "NEXT_OTEL_VERBOSE",
-    "NEXT_PRIVATE_MINIMAL_MODE",
-    "__NEXT_TEST_MAX_ISR_CACHE",
-    "NEXT_PRIVATE_DEBUG_CACHE"
+    "NEXT_PRIVATE_MINIMAL_MODE"
   ],
   "assets": [],
   "framework": {
     "slug": "nextjs",
-    "version": "13.2.4"
+    "version": "13.1.1"
   }
 }

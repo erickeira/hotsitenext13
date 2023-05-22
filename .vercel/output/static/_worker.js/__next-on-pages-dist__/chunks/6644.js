@@ -1,1 +1,0 @@
-var i=(o,d,e)=>{var t=e(2634).default,u=e(6115);function n(f,r){if(r&&(t(r)==="object"||typeof r=="function"))return r;if(r!==void 0)throw TypeError("Derived constructors may only return object or undefined");return u(f)}o.exports=n,o.exports.__esModule=!0,o.exports.default=o.exports};export{i as default};

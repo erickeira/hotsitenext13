@@ -1,1 +1,0 @@
-var r=(i,t)=>{"use strict";var e;Object.defineProperty(t,"__esModule",{value:!0}),t.Direction=void 0,function(o){o.Right="to right",o.Left="to left",o.Down="to bottom",o.Up="to top"}(e=t.Direction||(t.Direction={}))};export{r as default};

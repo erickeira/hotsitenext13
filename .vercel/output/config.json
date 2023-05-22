@@ -59,16 +59,20 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/bw8KRd\\-fW9MqRIXsbc3a_/index.json$",
-      "dest": "/"
+      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/contato.json$",
+      "dest": "/contato"
     },
     {
-      "src": "^/_next/data/bw8KRd\\-fW9MqRIXsbc3a_/imovel/(?<id>[^/]+?)\\.json$",
-      "dest": "/imovel/[id]?id=$id"
+      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/estoque.json$",
+      "dest": "/estoque"
     },
     {
-      "src": "^/_next/data/bw8KRd\\-fW9MqRIXsbc3a_/noticia/(?<id>[^/]+?)\\.json$",
+      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/noticia/(?<id>[^/]+?)\\.json$",
       "dest": "/noticia/[id]?id=$id"
+    },
+    {
+      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/(?<view>[^/]+?)/(?<idview>[^/]+?)\\.json$",
+      "dest": "/[view]/[idview]?view=$view&idview=$idview"
     },
     {
       "src": "/_next/data/(.*)",
@@ -76,18 +80,18 @@
       "status": 404
     },
     {
-      "src": "^/imovel/(?<id>[^/]+?)(?:/)?$",
-      "dest": "/imovel/[id]?id=$id"
-    },
-    {
       "src": "^/noticia/(?<id>[^/]+?)(?:/)?$",
       "dest": "/noticia/[id]?id=$id"
+    },
+    {
+      "src": "^/(?<view>[^/]+?)/(?<idview>[^/]+?)(?:/)?$",
+      "dest": "/[view]/[idview]?view=$view&idview=$idview"
     },
     {
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|bw8KRd\\-fW9MqRIXsbc3a_)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|aqfUQeRIKM0sHGiBkrRCt)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },
@@ -150,8 +154,7 @@
       "image/webp"
     ],
     "dangerouslyAllowSVG": false,
-    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
-    "contentDispositionType": "inline"
+    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;"
   },
   "overrides": {
     "404.html": {
@@ -164,7 +167,7 @@
     }
   },
   "framework": {
-    "version": "13.2.4"
+    "version": "13.1.1"
   },
   "crons": []
 }

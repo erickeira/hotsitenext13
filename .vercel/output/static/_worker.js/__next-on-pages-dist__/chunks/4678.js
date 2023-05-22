@@ -1,0 +1,1 @@
+var l=(h,s,i)=>{"use strict";function u(e){return e.split("/").reduce((r,t,c,d)=>!t||t.startsWith("(")&&t.endsWith(")")||t.startsWith("@")||t==="page"&&c===d.length-1?r:r+`/${t}`,"")}function a(e,r){return r?e.replace(/\.rsc($|\?)/,""):e}i.d(s,{W:()=>a,w:()=>u})};export{l as default};

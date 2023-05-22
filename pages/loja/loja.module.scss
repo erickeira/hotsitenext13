@@ -1,0 +1,80 @@
+.containerPageLoja{
+    // height: 75vh;
+    margin: 0 auto;
+}
+
+
+.titulo {font-size: 30px}
+.subtitulo {font-size: 24px}
+
+.content{background-color:#F5F5F5}
+
+.bufferTexto{
+    margin-top: 20px;
+    font-size: 14px;
+    width: 100%;
+}
+
+
+.container {width: 100%;}
+.pageHeader {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.content.loja,.content.contato,.content.pg-contato,.content.pedidos{padding:0 0 50px 0}
+
+.row{
+    border: 1px solid rgba(0, 0, 0, 0.336);
+    display: inline-block;
+    padding: 8px;
+    border-radius: 5px;
+}
+.row:hover{
+    cursor: pointer;
+    border-color: var(--corTema1);
+}
+
+.mapaLoja{
+    margin-top: 10px;
+    text-align: center;
+    .mapa{
+        width: 100%;
+    }
+}
+.mapaLoja:hover{
+    color: var(--corTema1);
+}
+
+@media (min-width: 995px) and (max-width: 1249px) {
+    .containerPageLoja{
+        width: 968px;   
+    }
+   
+}
+
+@media (min-width: 768px) and (max-width: 994px) {        
+    .containerPageLoja{
+        width: 760px;
+    }
+}
+
+@media (max-width:760px) {
+    .containerPageLoja{
+        width: 500px;
+    }
+}
+
+@media (max-width:500px) {
+    .containerPageLoja{
+        width: 360px;
+    }
+}
+
+@media (max-width:360px) {
+    .containerPageLoja{
+        width: 260px;
+    }
+}
+

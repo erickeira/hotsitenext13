@@ -1,1 +1,0 @@
-var r=t=>{function e(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch{return!1}}t.exports=e,t.exports.__esModule=!0,t.exports.default=t.exports};export{r as default};

@@ -1,0 +1,179 @@
+.envolveBusca{    
+    display: flex;
+    flex-direction: column;
+    .buscaVeiculos{
+        display: flex;
+        justify-content: space-between;
+        margin: 35px 0;
+        
+        .titulo {
+            font-size: 28px;
+            border-bottom: 1px solid;
+            border-color: rgb(216, 216, 216);
+            width: 40%;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 15px;
+        }  
+    } 
+    .envolveOrdenacao{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #00000036;
+        border-radius: 5px;
+        color: #777;
+        margin-bottom: 30px;
+        .veiculosEncontradosTexto{
+            color: #33333391;
+            font-style: italic;
+        }
+        .selectOrdenacao{
+            padding: 0 10px;
+        }
+    }
+
+    .painelAnuncios{
+    
+        .anunciosDestaque{
+
+            .listagemAnuncios{
+                background-color: white;
+                max-width: 1170px;
+                display: flex;
+                gap: 26.5px;
+                flex-wrap: wrap;
+                padding: 10px 0;
+            }
+
+            .listagemSemAnuncio{
+                font-size: 25px;
+                padding: 10px;
+                text-align: center;
+            }
+        } 
+    }
+
+    .busca{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        background-color: #EEE;
+        border-radius: 6px;
+        gap: 10px;
+        .buscaMarcas{
+            width: 150px;
+        }
+        .buscaModelos{
+            width: 250px;
+        }
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background-color: var(--corTema1);
+            border-radius: 12px;
+            // padding: 10px 30px;
+            height: 40px;
+            width: 100px;
+            cursor: pointer;
+
+        }
+    }
+    .envolvePaginacao{
+        display: flex;
+        justify-content: flex-end;
+        list-style-type: none;
+        li{            
+            border: 1px solid rgba(0, 0, 0, 0.2117647059);
+            color: #000000bb;            
+            margin: 20px 5px;
+            cursor: pointer;
+            border-radius: 2px;
+            padding: 3px;
+            // height: 25px;
+            a{
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+            }
+        }
+        li:hover{
+            background-color: #ff3c3cee;
+            color: white;
+        }        
+    }
+    .paginaAtiva{        
+        background-color: var(--corTema1);
+        color: white;
+        a{
+            color: white;
+        }
+    }    
+    .previousLabel{
+        display: none;
+    }
+    .hidePrevious{
+        display: none;
+    }
+    .nextLabel{
+        display: none;
+    }
+}
+
+@media (min-width: 995px) and (max-width: 1249px) {
+    .envolveBusca{
+        max-width: 968px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 994px) {        
+    .envolveBusca{
+        max-width: 760px;
+        .buscaVeiculos{ 
+            .titulo{
+                font-size: 22px;
+            }
+        }        
+    }
+}
+
+@media (max-width:767px) {
+    .envolveBusca{        
+        .titulo{
+            width: 100%!important;
+            border: none!important;
+        }
+        .buscaVeiculos{
+            display: flex;
+            flex-direction: column;
+        }
+        .envolveOrdenacao{
+            display: flex;
+            flex-direction: column;
+            .veiculosEncontradosTexto{
+                margin: 10px 0;
+            }
+            .selectOrdenacao{
+                width: 100%;
+            }
+        } 
+        .busca{
+            flex-direction: column;
+            justify-content: flex-end;
+            .buscaMarcas, .buscaModelos{
+                width: 100%;
+            }
+            button{
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+        .envolvePaginacao{
+            justify-content:center;
+        }
+    }
+}

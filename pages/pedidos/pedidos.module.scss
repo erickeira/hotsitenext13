@@ -1,0 +1,109 @@
+.content{background-color:#F5F5F5}
+
+.containerPagePedidos{
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+}
+
+.pageHeader {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.imgPedido{width: 300px; height: 188px; border-radius: 6px; margin: 6px 0; }
+
+.botaoFrom{margin-top: 15px;text-align: right; }
+
+.panelHeading{
+    padding: 10px 0px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.formControl {
+    padding: 10px;
+    border-radius: 0;
+    color: #dc3545;
+    border: 0.5px solid #e9e9e9;
+    background-color: #f8f9fa;
+}
+
+.textSub{color: #777;margin-bottom: 10px;}
+
+.content.loja,.content.contato,.content.pg-contato,.content.pedidos{padding:0 0 50px 0}
+
+.infoEsquerda {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 15px;
+    padding: 10px 20px;
+}
+
+.infoDireita{
+    width: 60%;
+}
+
+.imgPedido{
+    width: 370px;
+    height: 230px;    
+}
+
+@media (min-width: 995px) and (max-width: 1249px) {
+    .containerPagePedidos{
+        width: 968px;   
+    }   
+    .row{
+        max-width: 968px;
+    }
+    .imgPedido{
+        width: 350px;
+        height: 220px;    
+    }
+}
+
+@media (min-width: 770px) and (max-width: 994px) {      
+    .containerPagePedidos{
+        max-width: 760px;
+    }  
+    .row{
+        max-width: 760px;
+    }    
+    .imgPedido{width: 280px; height: 175px ;margin: 10px 0;}
+}
+
+@media (max-width:769px) {        
+    .containerPagePedidos{
+        width: 90%;
+    }  
+    .imgPedido{
+        width: 100%;
+        height: 49%;
+    }
+    .infoEsquerda {
+        width: 100%;
+        display: block;
+        padding: 10px 0;
+    }    
+    .row{
+        flex-direction: column;        
+    }
+    .infoDireita{
+        width: 100%;               
+    }
+    .imgPedido{
+        margin: 0 auto;
+    }
+    // .infoDireita {
+    //     margin-top: 10px;
+    // }
+    .infoEsquerda{
+        display: flex;
+    }
+}

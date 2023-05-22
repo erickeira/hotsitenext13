@@ -1,1 +1,0 @@
-var s=e=>{function o(t,r){return r||(r=t.slice(0)),Object.freeze(Object.defineProperties(t,{raw:{value:Object.freeze(r)}}))}e.exports=o,e.exports.__esModule=!0,e.exports.default=e.exports};export{s as default};
