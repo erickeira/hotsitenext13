@@ -1,1 +1,1 @@
-var o=(n,a,i)=>{"use strict";function e(t){return t==="/api"||Boolean(t?.startsWith("/api/"))}i.d(a,{Q:()=>e})};export{o as default};
+var o=(n,i,a)=>{"use strict";function e(t){return t==="/api"||Boolean(t?.startsWith("/api/"))}a.d(i,{Q:()=>e})};export{o as default};

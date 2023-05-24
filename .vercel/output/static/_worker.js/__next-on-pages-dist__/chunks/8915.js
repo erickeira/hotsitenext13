@@ -1,1 +1,1 @@
-var c=($,a,r)=>{"use strict";r.d(a,{V:()=>u});var i=r(169);function u(t,e){if(!t.startsWith("/")||!e)return t;let{pathname:s,query:h,hash:n}=(0,i.c)(t);return`${e}${s}${h}${n}`}};export{c as default};
+var c=($,e,r)=>{"use strict";r.d(e,{V:()=>i});var u=r(169);function i(t,a){if(!t.startsWith("/")||!a)return t;let{pathname:s,query:h,hash:n}=(0,u.c)(t);return`${a}${s}${h}${n}`}};export{c as default};

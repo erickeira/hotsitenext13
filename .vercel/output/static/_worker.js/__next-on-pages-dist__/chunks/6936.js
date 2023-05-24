@@ -1,1 +1,1 @@
-var i=(e,o,l)=>{"use strict";function s(a,t){var r;return(r=!Array.isArray(t?.host)&&t?.host||a.hostname)==null?void 0:r.split(":")[0].toLowerCase()}l.d(o,{F:()=>s})};export{i as default};
+var u=(e,o,i)=>{"use strict";function l(s,t){var r;return(r=!Array.isArray(t?.host)&&t?.host||s.hostname)==null?void 0:r.split(":")[0].toLowerCase()}i.d(o,{F:()=>l})};export{u as default};

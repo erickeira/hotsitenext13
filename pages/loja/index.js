@@ -77,7 +77,7 @@ export default function Loja (props) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     
     const corpo = JSON.stringify( {
         acoes: [              

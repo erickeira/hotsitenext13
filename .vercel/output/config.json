@@ -59,19 +59,27 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/contato.json$",
+      "src": "^/_next/data/9vtKsRkgnHXA84NNzdtu9/index.json$",
+      "dest": "/"
+    },
+    {
+      "src": "^/_next/data/9vtKsRkgnHXA84NNzdtu9/contato.json$",
       "dest": "/contato"
     },
     {
-      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/estoque.json$",
+      "src": "^/_next/data/9vtKsRkgnHXA84NNzdtu9/estoque.json$",
       "dest": "/estoque"
     },
     {
-      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/noticia/(?<id>[^/]+?)\\.json$",
+      "src": "^/_next/data/9vtKsRkgnHXA84NNzdtu9/loja.json$",
+      "dest": "/loja"
+    },
+    {
+      "src": "^/_next/data/9vtKsRkgnHXA84NNzdtu9/noticia/(?<id>[^/]+?)\\.json$",
       "dest": "/noticia/[id]?id=$id"
     },
     {
-      "src": "^/_next/data/aqfUQeRIKM0sHGiBkrRCt/(?<view>[^/]+?)/(?<idview>[^/]+?)\\.json$",
+      "src": "^/_next/data/9vtKsRkgnHXA84NNzdtu9/(?<view>[^/]+?)/(?<idview>[^/]+?)\\.json$",
       "dest": "/[view]/[idview]?view=$view&idview=$idview"
     },
     {
@@ -91,7 +99,7 @@
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|aqfUQeRIKM0sHGiBkrRCt)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|9vtKsRkgnHXA84NNzdtu9)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },

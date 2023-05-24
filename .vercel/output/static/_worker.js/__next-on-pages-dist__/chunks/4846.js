@@ -1,0 +1,1 @@
+var d=(o,t,e)=>{"use strict";e.r(t),e.d(t,{default:()=>u});var a=e(6428);(0,a.g)();var n=e(4267),r=n.middleware||n.default;if(typeof r!="function")throw Error('The Edge Function "pages/api" must export a `default` function');function u(i){return(0,a.V)({...i,page:"/api",handler:r})}};export{d as default};
